@@ -15,6 +15,7 @@ namespace Cards
     {
         private string folderPath = null;
         private string[] fileNames = null;
+        private Random rand = new Random();
 
         public Desk()
         {
@@ -41,12 +42,11 @@ namespace Cards
                     Height = 100,
                     Width = 70,
                     SizeMode = PictureBoxSizeMode.StretchImage,
-                    Left = 100,
-                    Top = 100,
+                    Left = rand.Next(0, 400),
+                    Top = rand.Next(50, 300),
                     Image = Image.FromFile(fileName)
                 };
-                this.Controls.Add(filePictureBox);                
-
+                this.Controls.Add(filePictureBox); 
             }
         }
     }
