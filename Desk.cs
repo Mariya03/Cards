@@ -29,8 +29,25 @@ namespace Cards
 
         private void LoadCards_Click(object sender, EventArgs e)
         {
+            PictureBox filePictureBox = null;
+
             folderPath = @"C:\Users\Elchin\Downloads\Playing Cards\Playing Cards\playing_card_images\face";
-            fileNames = Directory.GetFiles(folderPath);
+            fileNames = Directory.GetFiles(folderPath);            
+
+            foreach(var fileName in fileNames)
+            {
+                filePictureBox = new PictureBox()
+                {
+                    Height = 100,
+                    Width = 70,
+                    SizeMode = PictureBoxSizeMode.StretchImage,
+                    Left = 100,
+                    Top = 100,
+                    Image = Image.FromFile(fileName)
+                };
+                this.Controls.Add(filePictureBox);                
+
+            }
         }
     }
 }
