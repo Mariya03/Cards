@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.Net.Mime;
 
 namespace Cards
 {
@@ -28,11 +29,29 @@ namespace Cards
             this.BackColor = Color.Green;            
         }
 
+        private string SelectFolder()
+        {
+            var selectFolderDialog = new FolderBrowserDialog();
+            DialogResult result = selectFolderDialog.ShowDialog();
+
+            if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(selectFolderDialog.SelectedPath))
+            {
+                return selectFolderDialog.SelectedPath;
+            }
+            return null;
+        }
+
         private void LoadCards_Click(object sender, EventArgs e)
         {
             PictureBox filePictureBox = null;
 
-            folderPath = @"C:\Users\Elchin\Downloads\Playing Cards\Playing Cards\playing_card_images\face";
+            //folderPath = @"C:\Users\Elchin\Downloads\Playing Cards\Playing Cards\playing_card_images\face";
+            folderPath = SelectFolder();
+            if(folderPath == null)
+            {
+                return;
+            }
+
             fileNames = Directory.GetFiles(folderPath);            
 
             foreach(var fileName in fileNames)
@@ -42,8 +61,8 @@ namespace Cards
                     Height = 100,
                     Width = 70,
                     SizeMode = PictureBoxSizeMode.StretchImage,
-                    Left = rand.Next(0, 400),
-                    Top = rand.Next(50, 300),
+                    Left = rand.Next(0, 800),
+                    Top = rand.Next(50, 600),
                     Image = Image.FromFile(fileName)
                 };
                 this.Controls.Add(filePictureBox); 
