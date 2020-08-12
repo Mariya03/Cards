@@ -15,8 +15,8 @@ namespace Cards
     public partial class Desk : Form
     {
         private bool mouseHold = false;
-        private int xPosCard;
-        private int yPosCard;
+        private int deltaX;
+        private int deltaY;
         
         private string folderPath = null;
         private string[] fileNames = null;
@@ -118,8 +118,8 @@ namespace Cards
             if(e.Button == MouseButtons.Left)
             {
                 mouseHold = true;
-                xPosCard = card.Location.X;
-                yPosCard = card.Location.Y;
+                deltaX = e.X;
+                deltaY = e.Y;
             }           
         }
 
@@ -138,8 +138,10 @@ namespace Cards
                 return;
             }            
             var card = (PictureBox)sender;
-            card.Top = e.Y + card.Top - yPosCard;
-            card.Left = e.X + card.Left - xPosCard;
+            //labelCoordinates.Text = (e.X + card.Left).ToString() + "; " + (e.Y + card.Top).ToString();
+
+            card.Top = e.Y + card.Top - deltaY;
+            card.Left = e.X + card.Left - deltaX;
         }
     }
 }
