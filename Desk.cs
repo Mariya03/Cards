@@ -15,6 +15,8 @@ namespace Cards
     public partial class Desk : Form
     {
         private bool mouseHold = false;
+        private int xPosCard;
+        private int yPosCard;
         
         private string folderPath = null;
         private string[] fileNames = null;
@@ -68,7 +70,7 @@ namespace Cards
                     Top = rand.Next(50, 600),
                     Image = Image.FromFile(fileName)
                 };
-                filePictureBox.Click += Card_Click;
+                //filePictureBox.Click += Card_Click;
                 filePictureBox.MouseDown += Card_MouseDown;
                 filePictureBox.MouseUp += Card_MouseUp;
                 filePictureBox.MouseMove += Card_MouseMove;
@@ -112,9 +114,12 @@ namespace Cards
 
         private void Card_MouseDown(object sender, MouseEventArgs e)
         {
+            var card = (PictureBox)sender;
             if(e.Button == MouseButtons.Left)
             {
                 mouseHold = true;
+                xPosCard = card.Location.X;
+                yPosCard = card.Location.Y;
             }           
         }
 
@@ -128,8 +133,13 @@ namespace Cards
 
         private void Card_MouseMove(object sender, MouseEventArgs e)
         {
+            if (!mouseHold)
+            {
+                return;
+            }            
             var card = (PictureBox)sender;
-            card.Location = e.Location;
+            card.Top = e.Y + card.Top - yPosCard;
+            card.Left = e.X + card.Left - xPosCard;
         }
     }
 }
