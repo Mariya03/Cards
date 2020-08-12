@@ -17,11 +17,13 @@ namespace Cards
         private bool mouseHold = false;
         private int deltaX;
         private int deltaY;
+        private bool cardsFlipped = false;
         
         private string folderPath = null;
         private string[] fileNames = null;
         private Random rand = new Random();
         private List<PictureBox> cards = new List<PictureBox>();
+        private List<string> filePaths = new List<string>();
 
         public Desk()
         {
@@ -60,7 +62,8 @@ namespace Cards
             fileNames = Directory.GetFiles(folderPath);            
 
             foreach(var fileName in fileNames)
-            {   
+            {
+                filePaths.Add(fileName);
                 filePictureBox = new PictureBox()
                 {
                     Height = 100,
@@ -141,6 +144,36 @@ namespace Cards
             var card = (PictureBox)sender;
             card.Top = e.Y + card.Top - deltaY;
             card.Left = e.X + card.Left - deltaX;
+        }
+
+        private void FlipCards_Click(object sender, EventArgs e)
+        {
+            if (cardsFlipped == true)
+            {
+                ShowFrontImage();
+            }
+            else
+            {
+                ShowBackImage();
+            }
+            cardsFlipped = !cardsFlipped;
+        }
+
+        private void ShowFrontImage()
+        {
+            for(int i = 0; i < 54; i++)
+            {
+                cards[i].Image = Image.FromFile(filePaths[i]);
+            }
+        }
+
+        private void ShowBackImage()
+        {
+            string backImagePath = @"C:\Users\Elchin\Downloads\Playing Cards\Playing Cards\playing_card_images\back\pink_back.png";
+            foreach (var card in cards)
+            {
+                card.Image = Image.FromFile(backImagePath);
+            }
         }
     }
 }
