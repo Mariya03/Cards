@@ -53,7 +53,7 @@ namespace Cards
             PictureBox filePictureBox = null;
 
             folderPath = @"C:\Users\Elchin\Downloads\Playing Cards\Playing Cards\playing_card_images\face";
-           ////folderPath = SelectFolder();
+           //folderPath = SelectFolder();
             if(folderPath == null)
             {
                 return;
