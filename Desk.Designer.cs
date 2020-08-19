@@ -47,7 +47,7 @@
             this.FlipCards});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(840, 27);
+            this.toolStrip1.Size = new System.Drawing.Size(630, 25);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -57,7 +57,7 @@
             this.LoadCards.Image = ((System.Drawing.Image)(resources.GetObject("LoadCards.Image")));
             this.LoadCards.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.LoadCards.Name = "LoadCards";
-            this.LoadCards.Size = new System.Drawing.Size(87, 24);
+            this.LoadCards.Size = new System.Drawing.Size(70, 22);
             this.LoadCards.Text = "Load Cards";
             this.LoadCards.Click += new System.EventHandler(this.LoadCards_Click);
             // 
@@ -67,7 +67,7 @@
             this.StackCards.Image = ((System.Drawing.Image)(resources.GetObject("StackCards.Image")));
             this.StackCards.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.StackCards.Name = "StackCards";
-            this.StackCards.Size = new System.Drawing.Size(48, 24);
+            this.StackCards.Size = new System.Drawing.Size(39, 22);
             this.StackCards.Text = "Stack";
             this.StackCards.Click += new System.EventHandler(this.StackCards_Click);
             // 
@@ -77,7 +77,7 @@
             this.DeckCards.Image = ((System.Drawing.Image)(resources.GetObject("DeckCards.Image")));
             this.DeckCards.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.DeckCards.Name = "DeckCards";
-            this.DeckCards.Size = new System.Drawing.Size(46, 24);
+            this.DeckCards.Size = new System.Drawing.Size(37, 22);
             this.DeckCards.Text = "Deck";
             this.DeckCards.Click += new System.EventHandler(this.DeckCards_Click);
             // 
@@ -87,16 +87,17 @@
             this.FlipCards.Image = ((System.Drawing.Image)(resources.GetObject("FlipCards.Image")));
             this.FlipCards.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.FlipCards.Name = "FlipCards";
-            this.FlipCards.Size = new System.Drawing.Size(37, 24);
+            this.FlipCards.Size = new System.Drawing.Size(30, 22);
             this.FlipCards.Text = "Flip";
             this.FlipCards.Click += new System.EventHandler(this.FlipCards_Click);
             // 
             // Desk
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(840, 567);
+            this.ClientSize = new System.Drawing.Size(630, 461);
             this.Controls.Add(this.toolStrip1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Desk";
             this.Text = "Form1";
             this.toolStrip1.ResumeLayout(false);
