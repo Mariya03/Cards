@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using System.Net.Mime;
+using System.Runtime.Remoting.Messaging;
 
 namespace Cards
 {
@@ -52,7 +53,7 @@ namespace Cards
         {
             PictureBox filePictureBox = null;
 
-            folderPath = @"C:\Users\Elchin\Downloads\Playing Cards\Playing Cards\playing_card_images\face";
+            folderPath = @"C:\Users\Андрей\Downloads\Playing Cards\playing_card_images\face";
            //folderPath = SelectFolder();
             if(folderPath == null)
             {
@@ -63,6 +64,7 @@ namespace Cards
 
             foreach(var fileName in fileNames)
             {
+
                 filePaths.Add(fileName);
                 filePictureBox = new PictureBox()
                 {
@@ -102,7 +104,7 @@ namespace Cards
             {
                 for(int y = 1; y < 7; y++)
                 {
-                    cards[counter].Location = new Point(x*75, y*105);
+                    cards[counter].Location = new Point(x*20, y*50);
                     counter++;
                 }
             }
@@ -110,6 +112,7 @@ namespace Cards
 
         private void Card_DoubleClick(object sender, EventArgs e)
         {
+           
             var card = (PictureBox)sender;
             card.Location = new Point(20, 30);
             card.BringToFront();
@@ -169,7 +172,7 @@ namespace Cards
 
         private void ShowBackImage()
         {
-            string backImagePath = @"C:\Users\Elchin\Downloads\Playing Cards\Playing Cards\playing_card_images\back\pink_back.png";
+            string backImagePath = @"C:\Users\Андрей\Downloads\Playing Cards\playing_card_images\back\pink_back.png";
             foreach (var card in cards)
             {
                 card.Image = Image.FromFile(backImagePath);
